@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+
+
+<html>
+	
+	<head>
+		<title>Projet - Convertion de données</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" />
+		
+		
+
+		
+
+	</head>
+	<body class="single is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Portefolio - Loïc Fournier-Simon</a></h1>
+						<nav class="links">
+							
+						</nav>
+						<nav class="main">
+							
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					
+
+						<!-- Search -->
+							
+
+						<!-- Links -->
+							<section>
+							
+							</section>
+
+						<!-- Actions -->
+							<section>
+								
+							</section>
+
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<article class="post">
+    <header>
+        <div class="title">
+            <h2><a href="#">Projet 3: Application de convertion de fichiers géospatiales</a></h2>
+            <p>Exemple du type d'interface possible</p>
+			<a class="image featured"><img src="images/file converterB.PNG" alt="" /></a>
+			<p>Présentation du code source</p>
+
+			<div id="code-display" style="background: #2d2d2d; padding: 20px; border-radius: 8px; margin: 20px 0;">
+				
+				<pre><code class="language-python">import customtkinter as ctk
+				from tkinter import filedialog
+				import subprocess
+
+				# Initialize the main window
+				app = ctk.CTk()
+				app.title("Geospatial File Converter")
+				app.geometry("400x200")
+
+				# Function to browse for input file
+				def browse_input_file():
+					input_file.set(filedialog.askopenfilename())
+
+				# Function to browse for output file
+				def browse_output_file():
+					output_file.set(filedialog.asksaveasfilename())
+
+				# Function to run the ogr2ogr conversion
+				def run_conversion():
+					input_path = input_file.get()
+					output_path = output_file.get()
+					output_format = output_format_combobox.get()
+
+					# Construct the ogr2ogr command
+					ogr2ogr_command = [
+						"ogr2ogr",
+						"-f", output_format,
+						output_path,
+						input_path
+					]
+
+					# Execute the command
+					subprocess.run(ogr2ogr_command)
+
+				# Variables for file paths
+				input_file = ctk.StringVar()
+				output_file = ctk.StringVar()
+
+				# Input file selection
+				ctk.CTkLabel(app, text="Input File:").pack(pady=5)
+				ctk.CTkEntry(app, textvariable=input_file, width=300).pack(pady=5)
+				ctk.CTkButton(app, text="Browse", command=browse_input_file).pack(pady=5)
+
+				# Output file selection
+				ctk.CTkLabel(app, text="Output File:").pack(pady=5)
+				ctk.CTkEntry(app, textvariable=output_file, width=300).pack(pady=5)
+				ctk.CTkButton(app, text="Browse", command=browse_output_file).pack(pady=5)
+
+				# Output format selection
+				ctk.CTkLabel(app, text="Output Format:").pack(pady=5)
+				output_format_combobox = ctk.CTkComboBox(app, values=["ESRI Shapefile", "GeoJSON", "GPKG"])
+				output_format_combobox.pack(pady=5)
+
+				# Run conversion button
+				ctk.CTkButton(app, text="Convert", command=run_conversion).pack(pady=20)
+
+				# Run the main loop
+				app.mainloop()</code></pre>
+				:::
+			</div>
+
+				<p>::::::::</p>
+				<p>Caractéristiques de l'application :</p>
+
+
+				<p>Interface graphique moderne utilisant CustomTkinter pour un rendu visuel amélioré
+					<p>Sélection simple des fichiers via les boîtes de dialogue natives</p>
+					<p>Prise en charge de multiples formats de données géospatiales</p>
+					<p>Intégration directe avec GDAL/OGR pour des conversions fiables</p>
+					
+				<p>::::::::</p>
+				</div>
+				
+        </div>
+    </header>
+    
+    <p>
+     
+    </p>
+    <footer>
+       
+    </footer>
+</article>
+
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<ul class="icons">
+							
+									
+						</ul>
+
+				
+						
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
